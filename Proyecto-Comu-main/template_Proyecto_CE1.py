@@ -67,6 +67,16 @@ def receptor(s_t_prima,f_rf):
     
     return m_t_reconstruida
 
+def plot_signal_vs_time(signal, sample_rate):
+    time = np.arange(len(signal)) / sample_rate
+    plt.figure(figsize=(10, 6))
+    plt.plot(time, signal)
+    plt.xlabel('Tiempo (s)')
+    plt.ylabel('Amplitud')
+    plt.title('Señal en función del tiempo')
+    plt.grid(True)
+    plt.show()
+
 
 
 ################### Inicio de ejecucion #####################
@@ -118,15 +128,7 @@ s_t_prima=canal(s_t)
 m_t_reconstruida=receptor(s_t_prima)
 
 
-#Graficador de señal vs tiempo
-def plot_signal_vs_time(signal, sample_rate):
-    time = np.arange(len(signal)) / sample_rate
-    plt.figure(figsize=(10, 6))
-    plt.plot(time, signal)
-    plt.xlabel('Tiempo (s)')
-    plt.ylabel('Amplitud')
-    plt.title('Señal en función del tiempo')
-    plt.grid(True)
-    plt.show()
+# Graficar la señal en función del tiempo con ruido
+plot_signal_vs_time(s_t_prima, samplerate_tono)
 
 
